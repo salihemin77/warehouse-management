@@ -1,6 +1,8 @@
 package com.example.warehouse_management.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
 
 @Entity
 @Table(name = "inventory")
@@ -8,6 +10,8 @@ public class Inventory {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    @Positive
+    @NotNull
     @Column(name = "quantity")
     private Integer quantity;
 

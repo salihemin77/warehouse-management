@@ -2,6 +2,7 @@ package com.example.warehouse_management.controller;
 
 import com.example.warehouse_management.entity.Inventory;
 import com.example.warehouse_management.service.InventoryService;
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -24,7 +25,7 @@ public class InventoryController {
         return inventoryService.findById(id);
     }
     @PostMapping("/inventories")
-    public Inventory save(@RequestBody Inventory inventory) {
+    public Inventory save( @Valid @RequestBody Inventory inventory) {
         return inventoryService.save(inventory);
     }
     @DeleteMapping("/inventories/{id}")

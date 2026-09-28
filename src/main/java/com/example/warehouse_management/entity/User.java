@@ -2,6 +2,8 @@ package com.example.warehouse_management.entity;
 
 import com.example.warehouse_management.enums.Role;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "users")
@@ -9,12 +11,17 @@ public class User {
      @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
+@NotBlank
 @Column(name = "name")
     private String name;
+@NotBlank
 @Column(name = "email")
     private String email;
+@NotBlank
 @Column(name = "password")
     private String password;
+@NotNull
 @Enumerated(EnumType.STRING)
 @Column(name = "role")
 private Role role;

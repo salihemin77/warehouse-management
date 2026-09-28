@@ -1,6 +1,9 @@
 package com.example.warehouse_management.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
 
 import java.math.BigDecimal;
 
@@ -10,11 +13,14 @@ public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-
+@NotBlank
     @Column(name = "name")
     private String name;
+@NotBlank
     @Column(name = "sku")
     private String sku;
+@Positive
+@NotNull
     @Column(name = "price")
     private BigDecimal price;
 

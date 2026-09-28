@@ -3,6 +3,7 @@ package com.example.warehouse_management.controller;
 import com.example.warehouse_management.entity.Product;
 import com.example.warehouse_management.repository.ProductRepository;
 import com.example.warehouse_management.service.ProductService;
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -25,7 +26,7 @@ public class ProductController {
         return productService.findById(id);
     }
     @PostMapping("/products")
-    public Product save(@RequestBody Product product){
+    public Product save(@Valid @RequestBody Product product){
         return productService.save(product);
     }
     @DeleteMapping("/products/{id}")

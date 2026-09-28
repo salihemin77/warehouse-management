@@ -2,6 +2,7 @@ package com.example.warehouse_management.controller;
 
 import com.example.warehouse_management.entity.Warehouse;
 import com.example.warehouse_management.service.WarehouseService;
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -24,13 +25,15 @@ public class WarehouseController  {
         return warehouseService.findById(id);
     }
     @PostMapping("/warehouses")
-    public Warehouse createWarehouse(@RequestBody Warehouse warehouse){
+    public Warehouse createWarehouse(@Valid @RequestBody Warehouse warehouse){
         return warehouseService.save(warehouse);
     }
     @DeleteMapping("/warehouses/{id}")
     public void deleteWarehouseById(@PathVariable Integer id){
         warehouseService.deleteById(id);
     }
+
+
 
 
 

@@ -2,6 +2,7 @@ package com.example.warehouse_management.controller;
 
 import com.example.warehouse_management.entity.Transfer;
 import com.example.warehouse_management.service.TransferService;
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -27,7 +28,7 @@ public class TransferController {
     }
 
     @PostMapping("/transfers")
-    public Transfer save(@RequestBody Transfer transfer) {
+    public Transfer save( @Valid @RequestBody Transfer transfer) {
         return transferService.save(transfer);
     }
 

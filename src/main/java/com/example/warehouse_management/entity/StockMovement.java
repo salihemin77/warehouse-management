@@ -2,6 +2,8 @@ package com.example.warehouse_management.entity;
 
 import com.example.warehouse_management.enums.Type;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
 
 @Entity
 @Table(name = "stock_movement")
@@ -9,8 +11,12 @@ public class StockMovement {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    @NotNull
     @Enumerated(EnumType.STRING)
     private Type type;
+     @Positive
+    @NotNull
+
     @Column(name = "quantity")
     private Integer quantity;
    @ManyToOne
